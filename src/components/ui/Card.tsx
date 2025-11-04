@@ -5,14 +5,28 @@ interface CardProps {
   children: ReactNode
   onClick?: () => void
   className?: string
+  hoverScale?: boolean
 }
 
-export const Card = ({ children, onClick, className = '' }: CardProps) => {
+export const Card = ({
+  children,
+  onClick,
+  className = '',
+  hoverScale = true,
+}: CardProps) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.05, y: -5 }}
-      whileTap={{ scale: 0.95 }}
-      className={`bg-white rounded-3xl shadow-lg p-6 cursor-pointer ${className}`}
+      whileHover={hoverScale ? { scale: 1.05 } : {}}
+      whileTap={onClick ? { scale: 0.95 } : {}}
+      className={`
+        bg-white
+        rounded-2xl
+        shadow-lg
+        p-6
+        ${onClick ? 'cursor-pointer hover:shadow-xl' : ''}
+        transition-shadow
+        ${className}
+      `}
       onClick={onClick}
     >
       {children}

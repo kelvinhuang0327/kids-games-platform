@@ -1,6 +1,5 @@
 import type { AgeGroup, GameConfig } from '@/types'
 
-// 年齡組配置
 export const AGE_GROUPS: Record<AgeGroup, { name: string; color: string; bg: string }> = {
   '4-6': {
     name: '寶寶樂園',
@@ -14,13 +13,12 @@ export const AGE_GROUPS: Record<AgeGroup, { name: string; color: string; bg: str
   },
 }
 
-// 遊戲配置
 export const GAMES: Record<string, GameConfig> = {
   puzzle: {
     id: 'puzzle',
     name: 'puzzle',
-    displayName: '拼圖',
-    description: '鍛煉空間認知能力',
+    displayName: '拼圖遊戲',
+    description: '培養空間邏輯與形狀辨識',
     icon: '🧩',
     ageGroups: ['4-6', '7-13'],
     difficulty: 'easy',
@@ -28,63 +26,109 @@ export const GAMES: Record<string, GameConfig> = {
   maze: {
     id: 'maze',
     name: 'maze',
-    displayName: '迷宮',
-    description: '訓練邏輯思維',
+    displayName: '迷宮冒險',
+    description: '訓練方向感與問題解決',
     icon: '🌀',
-    ageGroups: ['4-6', '7-13'],
-    difficulty: 'medium',
-  },
-  comic: {
-    id: 'comic',
-    name: 'comic',
-    displayName: '互動漫畫',
-    description: '啟發創意想像',
-    icon: '📖',
     ageGroups: ['4-6', '7-13'],
     difficulty: 'easy',
   },
-  math: {
-    id: 'math',
-    name: 'math',
-    displayName: '數學挑戰',
-    description: '提升運算能力',
-    icon: '🔢',
-    ageGroups: ['7-13'],
+  'color-match': {
+    id: 'color-match',
+    name: 'color-match',
+    displayName: '顏色配對',
+    description: '認識色彩與分類能力',
+    icon: '🎨',
+    ageGroups: ['4-6', '7-13'],
+    difficulty: 'easy',
+  },
+  memory: {
+    id: 'memory',
+    name: 'memory',
+    displayName: '記憶翻牌',
+    description: '加強記憶與注意力',
+    icon: '🎴',
+    ageGroups: ['4-6', '7-13'],
     difficulty: 'medium',
   },
-  coding: {
-    id: 'coding',
-    name: 'coding',
-    displayName: '程式邏輯',
-    description: '培養運算思維',
-    icon: '💻',
+  story: {
+    id: 'story',
+    name: 'story',
+    displayName: '互動故事',
+    description: '啟發語言理解與創意',
+    icon: '📖',
+    ageGroups: ['4-6', '7-13'],
+    difficulty: 'medium',
+  },
+  'strategy-maze': {
+    id: 'strategy-maze',
+    name: 'strategy-maze',
+    displayName: '策略迷宮',
+    description: '提升策略性邏輯思考',
+    icon: '🎯',
     ageGroups: ['7-13'],
     difficulty: 'hard',
   },
-  edx: {
-    id: 'edx',
-    name: 'edx',
-    displayName: 'EdX推薦',
-    description: '優質教育資源',
-    icon: '🎓',
+  sudoku: {
+    id: 'sudoku',
+    name: 'sudoku',
+    displayName: '數獨入門',
+    description: '練習邏輯推理',
+    icon: '🧮',
+    ageGroups: ['7-13'],
+    difficulty: 'hard',
+  },
+  'time-management': {
+    id: 'time-management',
+    name: 'time-management',
+    displayName: '時間管理挑戰',
+    description: '學習時間規劃與任務排序',
+    icon: '⏰',
+    ageGroups: ['7-13'],
+    difficulty: 'hard',
+  },
+  'shape-match': {
+    id: 'shape-match',
+    name: 'shape-match',
+    displayName: '形狀拼拼樂',
+    description: '理解形狀搭配與手眼協調',
+    icon: '🔷',
+    ageGroups: ['4-6', '7-13'],
+    difficulty: 'easy',
+  },
+  'traffic-safety': {
+    id: 'traffic-safety',
+    name: 'traffic-safety',
+    displayName: '交通安全小勇士',
+    description: '學習生活交通安全知識',
+    icon: '🚦',
+    ageGroups: ['4-6', '7-13'],
+    difficulty: 'easy',
+  },
+  'fruit-slice': {
+    id: 'fruit-slice',
+    name: 'fruit-slice',
+    displayName: '水果切切樂',
+    description: '提高手眼協調與專注力',
+    icon: '🍎',
+    ageGroups: ['4-6', '7-13'],
+    difficulty: 'medium',
+  },
+  'math-challenge': {
+    id: 'math-challenge',
+    name: 'math-challenge',
+    displayName: '數學挑戰',
+    description: '增強數學計算與應用理解',
+    icon: '➕',
     ageGroups: ['7-13'],
     difficulty: 'medium',
   },
-}
-
-// 預設設定
-export const DEFAULT_SETTINGS = {
-  ageGroup: null,
-  soundEnabled: true,
-  musicEnabled: true,
-  voiceEnabled: true,
-}
-
-// 預設家長控制
-export const DEFAULT_PARENTAL = {
-  dailyLimit: 60,
-  todayUsage: 0,
-  lastResetDate: new Date().toISOString().split('T')[0],
-  allowedGames: Object.keys(GAMES),
-  disabledGames: [],
+  'spell-wizard': {
+    id: 'spell-wizard',
+    name: 'spell-wizard',
+    displayName: '拼字魔法師',
+    description: '增強英語拼字與詞彙',
+    icon: '🔤',
+    ageGroups: ['7-13'],
+    difficulty: 'medium',
+  },
 }

@@ -1,7 +1,5 @@
-// 年齡組類型
 export type AgeGroup = '4-6' | '7-13'
 
-// 遊戲配置
 export interface GameConfig {
   id: string
   name: string
@@ -12,15 +10,6 @@ export interface GameConfig {
   difficulty: 'easy' | 'medium' | 'hard'
 }
 
-// 遊戲結果
-export interface GameResult {
-  gameId: string
-  completed: boolean
-  score: number
-  duration: number
-}
-
-// 遊戲進度
 export interface GameProgress {
   completed: boolean
   bestScore: number
@@ -29,7 +18,6 @@ export interface GameProgress {
   lastPlayed: string
 }
 
-// 設定
 export interface Settings {
   ageGroup: AgeGroup | null
   soundEnabled: boolean
@@ -37,7 +25,6 @@ export interface Settings {
   voiceEnabled: boolean
 }
 
-// 家長控制
 export interface ParentalControl {
   dailyLimit: number
   todayUsage: number
@@ -46,7 +33,6 @@ export interface ParentalControl {
   disabledGames: string[]
 }
 
-// LocalStorage Schema
 export interface StorageSchema {
   settings: Settings
   progress: Record<string, GameProgress>

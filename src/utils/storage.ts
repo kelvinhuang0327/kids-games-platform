@@ -1,47 +1,60 @@
 import type { StorageSchema } from '@/types'
-import { DEFAULT_SETTINGS, DEFAULT_PARENTAL } from './constants'
 
-const PREFIX = 'kids_games_'
+class LocalStorageManager {
+  private prefix = 'kids_games_'
 
-class LocalStorage {
-  get<K extends keyof StorageSchema>(key: K): StorageSchema[K] | null {
+  private getDefault<K extends keyof StorageSchema>(key: K): StorageSchema[K] {
+    const defaults: StorageSchema = {
+      settings: {
+        ageGroup: null,
+        soundEnabled: true,
+        musicEnabled: true,
+        voiceEnabled: false,
+      },
+      progress: {},
+      parental: {
+        dailyLimit: 60,
+        todayUsage: 0,
+        lastResetDate: new Date().toISOString().split('T')[0],
+        allowedGames: [],
+        disabledGames: [],
+      },
+    }
+    return defaults[key]
+  }
+
+  get<K extends keyof StorageSchema>(key: K): StorageSchema[K] {
     try {
-      const item = localStorage.getItem(PREFIX + key)
-      if (!item) return this.getDefault(key)
+      const item = localStorage.getItem(this.prefix + key)
+      if (!item) {
+        return this.getDefault(key)
+      }
       return JSON.parse(item)
-    } catch {
+    } catch (error) {
+      console.error(`Error reading from localStorage: ${key}`, error)
       return this.getDefault(key)
     }
   }
 
   set<K extends keyof StorageSchema>(key: K, value: StorageSchema[K]): void {
     try {
-      localStorage.setItem(PREFIX + key, JSON.stringify(value))
+      localStorage.setItem(this.prefix + key, JSON.stringify(value))
     } catch (error) {
-      console.error('Storage set error:', error)
+      console.error(`Error writing to localStorage: ${key}`, error)
     }
-  }
-
-  remove<K extends keyof StorageSchema>(key: K): void {
-    localStorage.removeItem(PREFIX + key)
   }
 
   clear(): void {
-    Object.keys(localStorage).forEach((key) => {
-      if (key.startsWith(PREFIX)) {
-        localStorage.removeItem(key)
-      }
-    })
-  }
-
-  private getDefault<K extends keyof StorageSchema>(key: K): StorageSchema[K] {
-    const defaults: Record<string, unknown> = {
-      settings: DEFAULT_SETTINGS,
-      parental: DEFAULT_PARENTAL,
-      progress: {},
+    try {
+      Object.keys(localStorage).forEach((key) => {
+        if (key.startsWith(this.prefix)) {
+          localStorage.removeItem(key)
+        }
+      })
+    } catch (error) {
+      console.error('Error clearing localStorage', error)
     }
-    return defaults[key] as StorageSchema[K]
   }
 }
 
-export const storage = new LocalStorage()
+export const storage = new LocalStorageManager()

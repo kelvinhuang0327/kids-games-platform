@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { AgeGroup, Settings } from '@/types'
+import type { Settings, AgeGroup } from '@/types'
 import { storage } from '@/utils/storage'
 
 interface SettingsState extends Settings {
@@ -34,7 +34,8 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   },
 
   reset: () => {
-    set({ ageGroup: null })
-    storage.set('settings', get())
+    const defaults = storage.get('settings')
+    set(defaults)
+    storage.set('settings', defaults)
   },
 }))

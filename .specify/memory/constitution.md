@@ -1,50 +1,49 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
 
-## Core Principles
+# [專案名稱] 專案憲章
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+## 核心原則
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### I. 程式碼品質優先
+所有程式碼必須遵循最佳實踐和編碼標準；使用 ESLint 和 Prettier 進行程式碼規範檢查；所有功能必須有對應的單元測試；程式碼審查是必要的，不得跳過；重構優於新增技術債務。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**理由**: 高品質的程式碼確保專案的長期維護性和擴展性，減少錯誤和開發成本。
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. 使用者體驗一致性
+所有使用者介面元件必須遵循統一的設計系統；互動模式在整個應用程式中保持一致；響應式設計確保在所有裝置上的最佳體驗；無障礙設計遵循 WCAG 2.1 AA 標準；使用者回饋和載入狀態必須清晰可見。
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+**理由**: 一致的使用者體驗提升使用者滿意度，降低學習成本，增強品牌認知。
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### III. 效能要求 (不可協商)
+頁面首次載入時間必須在 3 秒內完成；互動響應時間不得超過 100 毫秒；Lighthouse 效能評分必須達到 90 分以上；實施程式碼分割和懶載入優化；圖片和靜態資源必須經過最佳化處理。
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**理由**: 優秀的效能直接影響使用者體驗和 SEO 排名，是商業成功的關鍵因素。
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### IV. 技術標準
+使用 JavaScript ES6+ 語法；模組化架構，每個功能獨立可測試；API 設計遵循 RESTful 原則；使用現代化的建構工具 (Vite)。
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**理由**: 統一的技術標準確保團隊協作效率和程式碼一致性。
 
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+### V. 文件與註解規範
+所有專案文件、README 檔案必須使用正體中文撰寫；程式碼變數和函數命名使用英文；程式碼註解必須使用正體中文；錯誤訊息和使用者介面文字使用正體中文；API 文件和技術規格使用正體中文說明。
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+**理由**: 統一的語言規範確保團隊溝通效率和文件可讀性。
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+## 技術決策治理
+
+### 架構決策記錄
+重大技術決策必須記錄在 `docs/architecture/` 目錄中；每個決策記錄包含背景、選項評估、決定和後果；決策變更需要新的記錄文件，不得直接修改舊記錄。
+
+### 依賴管理
+新增外部依賴必須經過安全性和效能評估；優先選擇活躍維護且社群支援良好的套件；定期更新依賴版本並進行安全性掃描；避免引入不必要的大型依賴庫。
+
+### 效能監控
+實施效能監控和指標追蹤；建立效能回歸測試；定期進行效能分析和最佳化；設定效能預算和警報機制。
+
+## 開發流程與品質保證
+
+### 程式碼審查流程
+所有程式碼變更必須經過 Pull Request 審查；審查重點包含功能正確性、程式碼品質、效能影響和安全性；至少需要一位團隊成員的批准；自動化測試必須通過才能合併。
+
+## 治理
+
+憲章優先於所有其他開發實踐；憲章修改需要團隊討論、批准和遷移計畫；所有 Pull Request 和程式碼審查必須驗證憲章合規性；複雜性增加必須有充分理由；使用 `AGENTS.md` 檔案提供執行期間的開發指導。

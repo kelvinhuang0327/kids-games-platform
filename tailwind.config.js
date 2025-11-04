@@ -7,14 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        toddler: {
-          primary: '#FF6B9D',
-          bg: '#FFF9E6',
-        },
-        kids: {
-          primary: '#4A90E2',
-          bg: '#F5F8FF',
-        },
+        'toddler-primary': '#FF6B9D',
+        'toddler-bg': '#FFF9E6',
+        'kids-primary': '#4A90E2',
+        'kids-bg': '#F5F8FF',
       },
     },
   },
