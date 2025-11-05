@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface ColorItem {
   id: number
@@ -79,11 +80,13 @@ export const ColorMatchPage = () => {
     if (selected.id === targetColor.id) {
       setScore(score + 100)
       setFeedback('✅ 正確！')
+      playSuccessMessage() // 播放成功語音
       setTimeout(() => {
         nextRound()
       }, 1000)
     } else {
       setFeedback('❌ 再試試看！')
+      playFailureMessage() // 播放失敗語音
       setTimeout(() => {
         setFeedback('')
       }, 1000)

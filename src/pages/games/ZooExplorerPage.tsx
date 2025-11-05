@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface Animal {
   id: string
@@ -107,6 +108,7 @@ export const ZooExplorerPage = () => {
       setCorrectCount(correctCount + 1)
       setFeedback('✅ 正確！太棒了！')
       setShowFact(true)
+      playSuccessMessage()
 
       setTimeout(() => {
         setRound(round + 1)
@@ -114,6 +116,7 @@ export const ZooExplorerPage = () => {
       }, 3000)
     } else {
       setFeedback('❌ 再想想看！這不是正確的家哦！')
+      playFailureMessage()
       setTimeout(() => {
         setFeedback('')
       }, 1500)

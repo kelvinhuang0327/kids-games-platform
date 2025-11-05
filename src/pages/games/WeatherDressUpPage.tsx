@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface Weather {
   id: string
@@ -111,12 +112,15 @@ export const WeatherDressUpPage = () => {
       setScore(score + points)
       setCorrectCount(correctCount + 1)
       setFeedback('✅ 太棒了！你選的衣服很適合這個天氣！')
+      playSuccessMessage()
     } else if (hasCorrectItem) {
       const points = 50
       setScore(score + points)
       setFeedback('⚠️ 還不錯！但有些衣服不太適合這個天氣哦！')
+      playFailureMessage()
     } else {
       setFeedback('❌ 再想想看！這些衣服不適合這個天氣！')
+      playFailureMessage()
     }
 
     setShowResult(true)

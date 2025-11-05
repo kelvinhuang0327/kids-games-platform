@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage } from '@/utils/audioFeedback'
 
 interface Position {
   x: number
@@ -58,6 +59,7 @@ export const MazePage = () => {
   const checkComplete = () => {
     if (playerPos.x === goalPos.x && playerPos.y === goalPos.y && !isComplete) {
       setIsComplete(true)
+      playSuccessMessage()
       const duration = Date.now() - startTime
 
       saveResult({

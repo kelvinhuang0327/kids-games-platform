@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 type Cell = {
   value: number
@@ -139,6 +140,13 @@ export const SudokuPage = () => {
     newGrid[row][col].value = num
     newGrid[row][col].isError = !isValid(newGrid, row, col, num)
 
+    // Play audio feedback based on validity
+    if (newGrid[row][col].isError) {
+      playFailureMessage()
+    } else {
+      playSuccessMessage()
+    }
+
     setGrid(newGrid)
     setMoves(moves + 1)
 
@@ -201,6 +209,7 @@ export const SudokuPage = () => {
 
     if (allFilled && noErrors) {
       setIsComplete(true)
+      playSuccessMessage()
       const duration = Date.now() - startTime
       const score = Math.max(1500 - moves * 10 + hints * 50, 0)
 

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage } from '@/utils/audioFeedback'
 
 interface Fruit {
   id: number
@@ -87,6 +88,7 @@ export const FruitSlicePage = () => {
     )
     setScore((prev) => prev + 10)
     setSlicedCount((prev) => prev + 1)
+    playSuccessMessage()
 
     setTimeout(() => {
       setFruits((prev) => prev.filter((f) => f.id !== fruitId))

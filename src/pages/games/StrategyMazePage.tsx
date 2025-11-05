@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface Position {
   x: number
@@ -183,6 +184,7 @@ export const StrategyMazePage = () => {
     if (hit) {
       const newHealth = health - 1
       setHealth(newHealth)
+      playFailureMessage()
 
       if (newHealth <= 0) {
         setGameOver(true)
@@ -221,6 +223,7 @@ export const StrategyMazePage = () => {
       if (traps.has(posKey)) {
         const newHealth = health - 1
         setHealth(newHealth)
+        playFailureMessage()
 
         if (newHealth <= 0) {
           setGameOver(true)
@@ -239,12 +242,14 @@ export const StrategyMazePage = () => {
         const newKeys = new Set(keys)
         newKeys.delete(posKey)
         setKeys(newKeys)
+        playSuccessMessage()
       }
 
       // 檢查終點
       if (newX === goalPos.x && newY === goalPos.y) {
         if (collectedKeys >= requiredKeys) {
           setIsComplete(true)
+          playSuccessMessage()
           const duration = Date.now() - startTime
           const score = Math.max(2000 - moves * 5 + collectedKeys * 100, 0)
 

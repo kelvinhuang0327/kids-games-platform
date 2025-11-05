@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface Word {
   word: string
@@ -92,8 +93,10 @@ export const SpellWizardPage = () => {
       setScore(score + points)
       setCorrectCount(correctCount + 1)
       setFeedback('✅ 正確！')
+      playSuccessMessage()
     } else {
       setFeedback(`❌ 正確答案是: ${currentWord.word}`)
+      playFailureMessage()
     }
 
     setTimeout(() => {

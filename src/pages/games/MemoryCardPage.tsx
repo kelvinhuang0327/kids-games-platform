@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface Card {
   id: number
@@ -85,6 +86,7 @@ export const MemoryCardPage = () => {
 
       if (firstCard.emoji === secondCard.emoji) {
         // 配對成功
+        playSuccessMessage()
         setTimeout(() => {
           const updatedCards = [...cards]
           updatedCards[first].isMatched = true
@@ -96,6 +98,7 @@ export const MemoryCardPage = () => {
         }, 500)
       } else {
         // 配對失敗
+        playFailureMessage()
         setTimeout(() => {
           const updatedCards = [...cards]
           updatedCards[first].isFlipped = false

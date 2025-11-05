@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface Question {
   id: number
@@ -216,6 +217,9 @@ export const TrafficSafetyPage = () => {
     if (option.isCorrect) {
       setScore(score + 100)
       setCorrectCount(correctCount + 1)
+      playSuccessMessage()
+    } else {
+      playFailureMessage()
     }
   }
 

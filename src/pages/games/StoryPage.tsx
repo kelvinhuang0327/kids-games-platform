@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface StoryNode {
   id: number
@@ -242,6 +243,14 @@ export const StoryPage = () => {
     const nextNode = STORY_NODES[nextId]
     if (nextNode.isEnding) {
       const duration = Date.now() - startTime
+
+      // Play audio feedback based on ending type
+      if (nextNode.endingType === 'good') {
+        playSuccessMessage()
+      } else if (nextNode.endingType === 'bad') {
+        playFailureMessage()
+      }
+
       saveResult({
         gameId: 'story',
         completed: true,

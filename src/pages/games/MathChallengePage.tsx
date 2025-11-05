@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface Question {
   num1: number
@@ -82,8 +83,10 @@ export const MathChallengePage = () => {
       setScore(score + 10)
       setCorrectCount(correctCount + 1)
       setFeedback('✅ 正確！')
+      playSuccessMessage()
     } else {
       setFeedback(`❌ 答案是 ${currentQuestion.answer}`)
+      playFailureMessage()
     }
 
     setTimeout(() => {

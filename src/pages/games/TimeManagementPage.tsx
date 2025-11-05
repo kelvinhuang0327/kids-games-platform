@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface Task {
   id: number
@@ -120,6 +121,7 @@ export const TimeManagementPage = () => {
   const doTask = (task: Task) => {
     if (currentTime + task.duration > totalTime) {
       // 時間不夠
+      playFailureMessage()
       setGameOverReason('時間不夠了！')
       endGame()
       return
@@ -132,6 +134,7 @@ export const TimeManagementPage = () => {
     if (newTime <= task.deadline) {
       // 在截止時間內完成，獲得全部分數
       taskScore = task.points
+      playSuccessMessage()
 
       // 如果提前很多完成，額外獎勵
       if (newTime < task.deadline - 10) {
@@ -141,6 +144,7 @@ export const TimeManagementPage = () => {
       // 超過截止時間，扣分
       const overtime = newTime - task.deadline
       taskScore = Math.max(0, task.points - overtime * 2)
+      playFailureMessage()
     }
 
     setScore(score + taskScore)
@@ -155,6 +159,7 @@ export const TimeManagementPage = () => {
     )
 
     if (overdueHighPriority.length > 0) {
+      playFailureMessage()
       setGameOverReason('高優先級任務逾期！')
       endGame()
       return
@@ -169,6 +174,7 @@ export const TimeManagementPage = () => {
       } else {
         // 遊戲完成
         setIsComplete(true)
+        playSuccessMessage()
         const duration = Date.now() - startTime
 
         saveResult({

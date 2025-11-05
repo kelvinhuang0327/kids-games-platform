@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage } from '@/utils/audioFeedback'
 
 interface PuzzlePiece {
   id: number
@@ -77,6 +78,7 @@ export const PuzzlePage = () => {
 
     if (complete && !isComplete) {
       setIsComplete(true)
+      playSuccessMessage()
       const duration = Date.now() - startTime
 
       saveResult({

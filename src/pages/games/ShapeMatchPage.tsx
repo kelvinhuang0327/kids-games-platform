@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface Shape {
   id: string
@@ -84,6 +85,7 @@ export const ShapeMatchPage = () => {
       setScore(score + 100)
       setCorrectCount(correctCount + 1)
       setFeedback('✅ 正確！太棒了！')
+      playSuccessMessage()
       setTimeout(() => {
         setRound(round + 1)
         nextRound()
@@ -91,6 +93,7 @@ export const ShapeMatchPage = () => {
     } else {
       // 錯誤
       setFeedback(`❌ 再試試看！要找的是${targetShape.name}`)
+      playFailureMessage()
     }
   }
 

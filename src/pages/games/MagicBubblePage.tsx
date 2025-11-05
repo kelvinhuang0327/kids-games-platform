@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/useGameStore'
 import { useSettingsStore } from '@/store/useSettingsStore'
+import { playSuccessMessage, playFailureMessage } from '@/utils/audioFeedback'
 
 interface Bubble {
   id: number
@@ -140,6 +141,7 @@ export const MagicBubblePage = () => {
       const points = 10
       setScore(score + points)
       setCorrectPops(correctPops + 1)
+      playSuccessMessage()
 
       // 每戳破5個正確的泡泡，換一個目標顏色
       if ((correctPops + 1) % 5 === 0) {
@@ -150,6 +152,7 @@ export const MagicBubblePage = () => {
       const penalty = 5
       setScore(Math.max(0, score - penalty))
       setWrongPops(wrongPops + 1)
+      playFailureMessage()
     }
   }
 
