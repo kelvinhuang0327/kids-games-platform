@@ -11,7 +11,7 @@ interface Question {
   situation: string
   emoji: string
   question: string
-  options: { text: string; isCorrect: boolean; explanation: string }[]
+  options: { text: string; emoji: string; isCorrect: boolean; explanation: string }[]
 }
 
 const QUESTIONS: Question[] = [
@@ -21,9 +21,9 @@ const QUESTIONS: Question[] = [
     emoji: '🚦',
     question: '看到紅燈時，應該怎麼做？',
     options: [
-      { text: '停下來等待', isCorrect: true, explanation: '正確！紅燈停，這樣才安全！' },
-      { text: '快速跑過去', isCorrect: false, explanation: '不對哦！紅燈時要停下來等待。' },
-      { text: '繼續慢慢走', isCorrect: false, explanation: '不對哦！看到紅燈就要停下來。' },
+      { text: '停下來等待', emoji: '🛑', isCorrect: true, explanation: '正確！紅燈停，這樣才安全！' },
+      { text: '快速跑過去', emoji: '🏃', isCorrect: false, explanation: '不對哦！紅燈時要停下來等待。' },
+      { text: '繼續慢慢走', emoji: '🚶', isCorrect: false, explanation: '不對哦！看到紅燈就要停下來。' },
     ],
   },
   {
@@ -32,9 +32,9 @@ const QUESTIONS: Question[] = [
     emoji: '🚸',
     question: '過馬路前，應該先做什麼？',
     options: [
-      { text: '左看右看確認安全', isCorrect: true, explanation: '太棒了！過馬路要先左右看！' },
-      { text: '直接衝過去', isCorrect: false, explanation: '危險！要先左右看確認安全。' },
-      { text: '只看一邊', isCorrect: false, explanation: '不夠安全！要左看右看兩邊都看。' },
+      { text: '左看右看確認安全', emoji: '👀', isCorrect: true, explanation: '太棒了！過馬路要先左右看！' },
+      { text: '直接衝過去', emoji: '🏃‍♂️', isCorrect: false, explanation: '危險！要先左右看確認安全。' },
+      { text: '只看一邊', emoji: '👁️', isCorrect: false, explanation: '不夠安全！要左看右看兩邊都看。' },
     ],
   },
   {
@@ -43,9 +43,9 @@ const QUESTIONS: Question[] = [
     emoji: '👣',
     question: '走在人行道上時，應該怎麼走？',
     options: [
-      { text: '靠右邊走', isCorrect: true, explanation: '正確！靠右邊走最安全！' },
-      { text: '走在中間', isCorrect: false, explanation: '不對哦！要靠右邊走才安全。' },
-      { text: '隨便走', isCorrect: false, explanation: '不對哦！要靠右邊走。' },
+      { text: '靠右邊走', emoji: '➡️', isCorrect: true, explanation: '正確！靠右邊走最安全！' },
+      { text: '走在中間', emoji: '↔️', isCorrect: false, explanation: '不對哦！要靠右邊走才安全。' },
+      { text: '隨便走', emoji: '↗️', isCorrect: false, explanation: '不對哦！要靠右邊走。' },
     ],
   },
   {
@@ -54,9 +54,9 @@ const QUESTIONS: Question[] = [
     emoji: '🚗',
     question: '坐車時，應該做什麼？',
     options: [
-      { text: '繫好安全帶', isCorrect: true, explanation: '很好！安全帶能保護我們！' },
-      { text: '站著玩', isCorrect: false, explanation: '危險！坐車要繫安全帶。' },
-      { text: '把頭伸出窗外', isCorrect: false, explanation: '很危險！絕對不可以！' },
+      { text: '繫好安全帶', emoji: '🔒', isCorrect: true, explanation: '很好！安全帶能保護我們！' },
+      { text: '站著玩', emoji: '🤸', isCorrect: false, explanation: '危險！坐車要繫安全帶。' },
+      { text: '把頭伸出窗外', emoji: '😵', isCorrect: false, explanation: '很危險！絕對不可以！' },
     ],
   },
   {
@@ -65,9 +65,9 @@ const QUESTIONS: Question[] = [
     emoji: '🟢',
     question: '看到綠燈時，可以怎麼做？',
     options: [
-      { text: '確認安全後通過', isCorrect: true, explanation: '正確！綠燈也要小心確認！' },
-      { text: '閉著眼睛跑', isCorrect: false, explanation: '危險！要張開眼睛看路。' },
-      { text: '不用看就跑', isCorrect: false, explanation: '不對！綠燈也要確認安全。' },
+      { text: '確認安全後通過', emoji: '✅', isCorrect: true, explanation: '正確！綠燈也要小心確認！' },
+      { text: '閉著眼睛跑', emoji: '😵‍💫', isCorrect: false, explanation: '危險！要張開眼睛看路。' },
+      { text: '不用看就跑', emoji: '🏃', isCorrect: false, explanation: '不對！綠燈也要確認安全。' },
     ],
   },
   {
@@ -76,9 +76,9 @@ const QUESTIONS: Question[] = [
     emoji: '🚲',
     question: '騎腳踏車時，應該戴什麼？',
     options: [
-      { text: '戴安全帽', isCorrect: true, explanation: '太棒了！安全帽很重要！' },
-      { text: '什麼都不戴', isCorrect: false, explanation: '不對！要戴安全帽保護頭部。' },
-      { text: '只戴帽子', isCorrect: false, explanation: '不夠安全！要戴安全帽。' },
+      { text: '戴安全帽', emoji: '⛑️', isCorrect: true, explanation: '太棒了！安全帽很重要！' },
+      { text: '什麼都不戴', emoji: '🚫', isCorrect: false, explanation: '不對！要戴安全帽保護頭部。' },
+      { text: '只戴帽子', emoji: '🧢', isCorrect: false, explanation: '不夠安全！要戴安全帽。' },
     ],
   },
   {
@@ -87,9 +87,9 @@ const QUESTIONS: Question[] = [
     emoji: '🦓',
     question: '看到斑馬線時，應該怎麼做？',
     options: [
-      { text: '走斑馬線過馬路', isCorrect: true, explanation: '正確！斑馬線是安全通道！' },
-      { text: '隨便找地方過', isCorrect: false, explanation: '危險！要走斑馬線。' },
-      { text: '不過馬路', isCorrect: false, explanation: '斑馬線就是讓我們安全過馬路的！' },
+      { text: '走斑馬線過馬路', emoji: '🚶', isCorrect: true, explanation: '正確！斑馬線是安全通道！' },
+      { text: '隨便找地方過', emoji: '❌', isCorrect: false, explanation: '危險！要走斑馬線。' },
+      { text: '不過馬路', emoji: '🛑', isCorrect: false, explanation: '斑馬線就是讓我們安全過馬路的！' },
     ],
   },
   {
@@ -98,9 +98,86 @@ const QUESTIONS: Question[] = [
     emoji: '🅿️',
     question: '在停車場時，應該注意什麼？',
     options: [
-      { text: '小心來往車輛', isCorrect: true, explanation: '很好！停車場有很多車要小心！' },
-      { text: '隨便亂跑', isCorrect: false, explanation: '危險！停車場有車要小心。' },
-      { text: '不用注意', isCorrect: false, explanation: '不對！要隨時注意車輛。' },
+      { text: '小心來往車輛', emoji: '👀', isCorrect: true, explanation: '很好！停車場有很多車要小心！' },
+      { text: '隨便亂跑', emoji: '🏃‍♀️', isCorrect: false, explanation: '危險！停車場有車要小心。' },
+      { text: '不用注意', emoji: '😴', isCorrect: false, explanation: '不對！要隨時注意車輛。' },
+    ],
+  },
+  {
+    id: 9,
+    situation: '公車',
+    emoji: '🚌',
+    question: '等公車時，應該站在哪裡？',
+    options: [
+      { text: '站在月台後方', emoji: '🚏', isCorrect: true, explanation: '正確！站在後方才安全！' },
+      { text: '站在馬路上', emoji: '⚠️', isCorrect: false, explanation: '危險！要站在月台或人行道。' },
+      { text: '站在車道邊緣', emoji: '😨', isCorrect: false, explanation: '太危險了！要站遠一點。' },
+    ],
+  },
+  {
+    id: 10,
+    situation: '雨天',
+    emoji: '☔',
+    question: '下雨天過馬路時，要注意什麼？',
+    options: [
+      { text: '車子煞車距離變長', emoji: '🚗', isCorrect: true, explanation: '很聰明！雨天要更小心！' },
+      { text: '跑得更快', emoji: '🏃', isCorrect: false, explanation: '不對！雨天地滑要更小心。' },
+      { text: '不用特別注意', emoji: '🤷', isCorrect: false, explanation: '錯了！雨天要更加小心。' },
+    ],
+  },
+  {
+    id: 11,
+    situation: '學校門口',
+    emoji: '🏫',
+    question: '在學校門口上下車時，應該從哪邊下車？',
+    options: [
+      { text: '靠人行道那邊', emoji: '🚶', isCorrect: true, explanation: '正確！這樣最安全！' },
+      { text: '靠馬路那邊', emoji: '🚗', isCorrect: false, explanation: '危險！要從靠人行道的那邊。' },
+      { text: '隨便哪邊都可以', emoji: '🤔', isCorrect: false, explanation: '不對！要從安全的那邊下車。' },
+    ],
+  },
+  {
+    id: 12,
+    situation: '夜晚',
+    emoji: '🌙',
+    question: '晚上外出時，應該穿什麼顏色的衣服？',
+    options: [
+      { text: '淺色或反光衣服', emoji: '👕', isCorrect: true, explanation: '太棒了！這樣容易被看見！' },
+      { text: '黑色衣服', emoji: '🖤', isCorrect: false, explanation: '不好！黑色在夜晚不容易被看見。' },
+      { text: '顏色不重要', emoji: '🤷‍♂️', isCorrect: false, explanation: '很重要！要穿容易被看見的顏色。' },
+    ],
+  },
+  {
+    id: 13,
+    situation: '電動滑板車',
+    emoji: '🛴',
+    question: '騎電動滑板車時，應該在哪裡騎？',
+    options: [
+      { text: '專用道或公園', emoji: '🌳', isCorrect: true, explanation: '正確！要在安全的地方騎！' },
+      { text: '馬路上', emoji: '🚗', isCorrect: false, explanation: '危險！不可以在馬路上騎。' },
+      { text: '人行道快速騎', emoji: '💨', isCorrect: false, explanation: '不對！會撞到行人。' },
+    ],
+  },
+  {
+    id: 14,
+    situation: '救護車',
+    emoji: '🚑',
+    question: '聽到救護車的聲音時，應該怎麼做？',
+    options: [
+      { text: '讓路給救護車', emoji: '➡️', isCorrect: true, explanation: '很好！救護車在救人要讓路！' },
+      { text: '繼續走自己的路', emoji: '🚶', isCorrect: false, explanation: '不對！要讓路給救護車。' },
+      { text: '跟著救護車跑', emoji: '🏃', isCorrect: false, explanation: '危險！要靠邊讓路。' },
+    ],
+  },
+  {
+    id: 15,
+    situation: '地下道',
+    emoji: '🚇',
+    question: '走地下道或天橋時，要注意什麼？',
+    options: [
+      { text: '不要奔跑推擠', emoji: '🚶‍♀️', isCorrect: true, explanation: '正確！慢慢走才安全！' },
+      { text: '可以跑跳', emoji: '🤸‍♀️', isCorrect: false, explanation: '危險！容易跌倒或撞到人。' },
+      { text: '不用扶扶手', emoji: '🙅', isCorrect: false, explanation: '不對！要扶好扶手。' },
     ],
   },
 ]
@@ -249,8 +326,17 @@ export const TrafficSafetyPage = () => {
                           ${selectedOption !== null && selectedOption !== index ? 'opacity-50' : ''}
                         `}
                       >
-                        <span className="mr-3 text-2xl">{String.fromCharCode(65 + index)}.</span>
-                        {option.text}
+                        {ageGroup === '4-6' ? (
+                          <div className="flex items-center gap-3">
+                            <span className="text-5xl">{option.emoji}</span>
+                          </div>
+                        ) : (
+                          <>
+                            <span className="mr-3 text-2xl">{String.fromCharCode(65 + index)}.</span>
+                            <span className="mr-2 text-xl">{option.emoji}</span>
+                            {option.text}
+                          </>
+                        )}
                       </Button>
                     </motion.div>
                   ))}

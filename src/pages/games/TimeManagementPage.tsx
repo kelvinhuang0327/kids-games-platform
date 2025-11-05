@@ -61,6 +61,16 @@ export const TimeManagementPage = () => {
       { name: '整理書桌', emoji: '🗂️', baseDuration: 10, basePriority: 'low' as const },
       { name: '複習英文單字', emoji: '🔤', baseDuration: 15, basePriority: 'high' as const },
       { name: '運動 20 分鐘', emoji: '⚽', baseDuration: 20, basePriority: 'medium' as const },
+      { name: '完成科學實驗報告', emoji: '🔬', baseDuration: 20, basePriority: 'high' as const },
+      { name: '練習書法', emoji: '🖌️', baseDuration: 15, basePriority: 'medium' as const },
+      { name: '整理衣櫃', emoji: '👔', baseDuration: 15, basePriority: 'low' as const },
+      { name: '洗碗', emoji: '🍽️', baseDuration: 10, basePriority: 'medium' as const },
+      { name: '餵寵物', emoji: '🐕', baseDuration: 5, basePriority: 'high' as const },
+      { name: '做手工藝', emoji: '✂️', baseDuration: 25, basePriority: 'low' as const },
+      { name: '背詩詞', emoji: '📜', baseDuration: 15, basePriority: 'high' as const },
+      { name: '打掃廁所', emoji: '🚽', baseDuration: 10, basePriority: 'low' as const },
+      { name: '預習明天的課程', emoji: '📝', baseDuration: 20, basePriority: 'high' as const },
+      { name: '整理玩具', emoji: '🧸', baseDuration: 10, basePriority: 'low' as const },
     ]
 
     // 隨機選擇 5-7 個任務

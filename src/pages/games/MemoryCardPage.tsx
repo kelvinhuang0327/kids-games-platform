@@ -12,7 +12,7 @@ interface Card {
   isMatched: boolean
 }
 
-const EMOJIS = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮']
+const EMOJIS = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮', '🐷', '🐸', '🐵', '🦉', '🦆', '🐙', '🦋', '🐝', '🦖', '🐢']
 
 export const MemoryCardPage = () => {
   const navigate = useNavigate()

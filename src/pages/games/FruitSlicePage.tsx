@@ -13,7 +13,7 @@ interface Fruit {
   isSliced: boolean
 }
 
-const FRUIT_EMOJIS = ['🍎', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🥝', '🍑', '🍒']
+const FRUIT_EMOJIS = ['🍎', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🥝', '🍑', '🍒', '🍍', '🥭', '🥥', '🍐', '🫐', '🍈']
 
 // 水果切切樂：訓練反應速度
 export const FruitSlicePage = () => {

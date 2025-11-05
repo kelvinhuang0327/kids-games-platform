@@ -21,6 +21,16 @@ const COLORS: ColorItem[] = [
   { id: 6, color: '#FFB6C1', name: '粉紅', emoji: '🌸' },
   { id: 7, color: '#DDA0DD', name: '紫色', emoji: '🍇' },
   { id: 8, color: '#FFD700', name: '金色', emoji: '⭐' },
+  { id: 9, color: '#FF8C00', name: '橙色', emoji: '🍊' },
+  { id: 10, color: '#87CEEB', name: '天藍', emoji: '☁️' },
+  { id: 11, color: '#8B4513', name: '棕色', emoji: '🐻' },
+  { id: 12, color: '#C0C0C0', name: '銀色', emoji: '🌙' },
+  { id: 13, color: '#FF1493', name: '桃紅', emoji: '🌺' },
+  { id: 14, color: '#00CED1', name: '深青', emoji: '🐟' },
+  { id: 15, color: '#9370DB', name: '中紫', emoji: '🦄' },
+  { id: 16, color: '#32CD32', name: '萊姆綠', emoji: '🥒' },
+  { id: 17, color: '#FF4500', name: '橘紅', emoji: '🦊' },
+  { id: 18, color: '#BA55D3', name: '蘭花紫', emoji: '🌷' },
 ]
 
 export const ColorMatchPage = () => {
@@ -208,8 +218,12 @@ export const ColorMatchPage = () => {
                 }}
               >
                 <div className="w-full h-full flex flex-col items-center justify-center text-white">
-                  <div className="text-5xl mb-2">{color.emoji}</div>
-                  <p className="text-xl font-bold drop-shadow-lg">{color.name}</p>
+                  <div className={ageGroup === '4-6' ? 'text-7xl mb-2' : 'text-5xl mb-2'}>
+                    {color.emoji}
+                  </div>
+                  {ageGroup === '7-13' && (
+                    <p className="text-xl font-bold drop-shadow-lg">{color.name}</p>
+                  )}
                 </div>
               </motion.div>
             ))}

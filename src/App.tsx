@@ -14,6 +14,9 @@ import { TrafficSafetyPage } from './pages/games/TrafficSafetyPage'
 import { FruitSlicePage } from './pages/games/FruitSlicePage'
 import { MathChallengePage } from './pages/games/MathChallengePage'
 import { SpellWizardPage } from './pages/games/SpellWizardPage'
+import { WeatherDressUpPage } from './pages/games/WeatherDressUpPage'
+import { ZooExplorerPage } from './pages/games/ZooExplorerPage'
+import { MagicBubblePage } from './pages/games/MagicBubblePage'
 import { ParentalControl } from './pages/ParentalControl'
 
 function App() {
@@ -35,6 +38,9 @@ function App() {
         <Route path="/game/fruit-slice" element={<FruitSlicePage />} />
         <Route path="/game/math-challenge" element={<MathChallengePage />} />
         <Route path="/game/spell-wizard" element={<SpellWizardPage />} />
+        <Route path="/game/weather-dress-up" element={<WeatherDressUpPage />} />
+        <Route path="/game/zoo-explorer" element={<ZooExplorerPage />} />
+        <Route path="/game/magic-bubble" element={<MagicBubblePage />} />
         <Route path="/parent" element={<ParentalControl />} />
       </Routes>
     </BrowserRouter>

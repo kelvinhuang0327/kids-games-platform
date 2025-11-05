@@ -20,6 +20,14 @@ const SHAPES: Shape[] = [
   { id: 'star', name: '星形', emoji: '⭐', color: 'bg-purple-400' },
   { id: 'heart', name: '愛心', emoji: '❤️', color: 'bg-pink-400' },
   { id: 'diamond', name: '菱形', emoji: '🔶', color: 'bg-orange-400' },
+  { id: 'hexagon', name: '六邊形', emoji: '⬡', color: 'bg-teal-400' },
+  { id: 'pentagon', name: '五邊形', emoji: '⬟', color: 'bg-indigo-400' },
+  { id: 'octagon', name: '八邊形', emoji: '🛑', color: 'bg-rose-400' },
+  { id: 'oval', name: '橢圓形', emoji: '🥚', color: 'bg-lime-400' },
+  { id: 'crescent', name: '月牙形', emoji: '🌙', color: 'bg-cyan-400' },
+  { id: 'lightning', name: '閃電形', emoji: '⚡', color: 'bg-amber-400' },
+  { id: 'cloud', name: '雲朵形', emoji: '☁️', color: 'bg-sky-400' },
+  { id: 'flower', name: '花朵形', emoji: '🌸', color: 'bg-fuchsia-400' },
 ]
 
 // 形狀拼拼樂：學習形狀辨識與配對
@@ -178,8 +186,12 @@ export const ShapeMatchPage = () => {
                       className="cursor-pointer hover:shadow-2xl transition-shadow"
                     >
                       <div className="text-center p-6">
-                        <div className="text-8xl mb-4">{shape.emoji}</div>
-                        <p className="text-xl font-bold text-gray-700">{shape.name}</p>
+                        <div className={ageGroup === '4-6' ? 'text-9xl mb-4' : 'text-8xl mb-4'}>
+                          {shape.emoji}
+                        </div>
+                        {ageGroup === '7-13' && (
+                          <p className="text-xl font-bold text-gray-700">{shape.name}</p>
+                        )}
                       </div>
                     </Card>
                   </motion.div>
