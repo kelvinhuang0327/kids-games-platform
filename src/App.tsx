@@ -18,6 +18,7 @@ import { WeatherDressUpPage } from './pages/games/WeatherDressUpPage'
 import { ZooExplorerPage } from './pages/games/ZooExplorerPage'
 import { MagicBubblePage } from './pages/games/MagicBubblePage'
 import { ParentalControl } from './pages/ParentalControl'
+import { VersionBadge } from './components/VersionBadge'
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/game/magic-bubble" element={<MagicBubblePage />} />
         <Route path="/parent" element={<ParentalControl />} />
       </Routes>
+      <VersionBadge />
     </BrowserRouter>
   )
 }
