@@ -31,7 +31,16 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+The following MUST pass (mirror latest憲章原則 v0.2.0):
+
+- Code Quality: ESLint/Prettier clean; test scaffolding defined; no unreviewed shortcuts.
+- UX Consistency: Reuse existing UI components; loading/error/success states specified.
+- Performance: Initial bundle budget ≤ 250KB gzip (planned); critical interaction <100ms target.
+- Technical Standards: TypeScript, Vite, Zustand, React Router usage confirmed—no rogue libs.
+- Documentation & Language: All new spec sections in 正體中文；API/邏輯命名英文；無模糊語言（避免“應該”未說明理由）。
+- Privacy & Safety: No tracking libraries; zero PII; local-only persistence; data clear path documented.
+
+If any gate fails: MUST justify in Complexity Tracking table before proceeding.
 
 ## Project Structure
 

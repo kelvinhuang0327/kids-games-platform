@@ -32,6 +32,22 @@
 - [ ] CHK005 Item with specific criteria
 - [ ] CHK006 Final item in this category
 
+## Privacy & Safety (憲章 VI)
+
+- [ ] PS001 No new tracking/analytics libraries added (package.json & bundle diff checked)
+- [ ] PS002 LocalStorage keys documented and prefixed consistently
+- [ ] PS003 No PII collected / stored (fields audit complete)
+- [ ] PS004 Data clear/reset path tested
+- [ ] PS005 Parent-gated action flows verified (if applicable)
+
+## Performance Budget (憲章 III)
+
+- [ ] PF001 Incremental JS bundle increase ≤ target (report attached)
+- [ ] PF002 All non-critical assets lazy loaded / deferred
+- [ ] PF003 Interaction latency <100ms (manual / instrumented sample)
+- [ ] PF004 No unexpected layout shifts (CLS check)
+- [ ] PF005 Images / media optimized (format, dimensions, compression)
+
 ## Notes
 
 - Check items off as completed: `[x]`

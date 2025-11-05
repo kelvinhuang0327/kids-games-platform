@@ -113,3 +113,27 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+
+### Privacy & Safety Acceptance Criteria *(aligns with 憲章 VI)*
+
+<!--
+  These MUST be explicit if feature touches data storage, tracking, logging, or user interaction involving children.
+  Remove items that are N/A and justify with a one-line rationale.
+-->
+
+- **PS-001**: No third-party tracking / analytics scripts introduced (verify dependency tree)  
+- **PS-002**: No PII fields collected or persisted (list all stored keys explicitly)  
+- **PS-003**: All locally stored keys documented (e.g., `kids_games_[feature]_*`)  
+- **PS-004**: Data clear/reset path defined (UI or function name)  
+- **PS-005**: Parent‑gated action(s) documented if feature exposes management controls  
+- **PS-006**: Error messages avoid exposing internal state / identifiers  
+- **PS-007**: Accessibility labels meaningful for any interactive child-facing element  
+
+### Performance & UX Acceptance Criteria *(aligns with 憲章 I–III)*
+
+<!-- Define only those that matter for this feature; remove unused. -->
+- **PF-001**: Added JS payload ≤ [X] KB gzip (incremental)  
+- **PF-002**: Critical interaction response <100ms (describe measurement method)  
+- **PF-003**: Lazy load applied to non-critical assets (list assets/components)  
+- **PF-004**: Lighthouse feature page perf score target ≥ 90 (after integration)  
+- **PF-005**: No layout shift > 0.1 CLS introduced by this feature  
